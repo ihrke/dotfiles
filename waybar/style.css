@@ -1,0 +1,79 @@
+@import url("./colors.css");
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Iosevka;
+    font-size: 11pt;
+    min-height: 0;
+}
+window#waybar {
+    opacity: 0.9;
+    background: @background-darker;
+    color: @foreground;
+    border-bottom: 2px solid @background;
+}
+#workspaces button {
+    padding: 0 10px;
+    background: @background;
+    color: @foreground;
+}
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background-image: linear-gradient(0deg, @selection, @background-darker);
+}
+#workspaces button.active {
+    background-image: linear-gradient(0deg, @purple, @selection);
+}
+#workspaces button.urgent {
+    background-image: linear-gradient(0deg, @red, @background-darker);
+}
+#taskbar button.active {
+    background-image: linear-gradient(0deg, @selection, @background-darker);
+}
+#clock {
+    padding: 0 4px;
+    background: @background;
+}
+#mode, 
+#battery, 
+#cpu, 
+#memory, 
+#network, 
+#bluetooth,
+#pulseaudio, 
+#idle_inhibitor, 
+#temperature,
+#custom-layout,
+#backlight {
+    margin: 0px 6px 0px 10px;
+/*    min-width: 30px;*/
+}
+
+#clock {
+    margin: 0px 6px 0px 10px;
+}
+
+#battery.warning {
+   color: rgba(255, 210, 4, 1);
+}
+
+#battery.critical {
+    color: rgba(238, 46, 36, 1);
+}
+
+#battery.charging {
+    color: rgba(217, 216, 216, 1);
+}
+
+#bluetooth.disabled {
+    color: rgba(128, 128, 128, 1);
+}
+
+#bluetooth.off {
+    color: rgba(128, 128, 128, 1);
+}
+
+#bluetooth.connected {
+    color: rgba(115, 186, 37, 1);
+}
