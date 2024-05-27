@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!hypr/*
+!kitty/*
+!waybar/*
+
+# ...even if they are in subdirectories
+!*/
