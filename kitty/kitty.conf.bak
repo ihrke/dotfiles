@@ -1,5 +1,5 @@
 dynamic_background_opacity yes
-background_opacity 0.5
+background_opacity 0.9
 background_blur 1
 ￼
 
@@ -11,6 +11,6 @@ font_features FiraCode-Regular +cv06 +cv27 +cv31
 
 
 # BEGIN_KITTY_THEME
-# Twilight
+# 3024 Day
 include current-theme.conf
 # END_KITTY_THEME
