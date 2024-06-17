@@ -11,6 +11,6 @@ font_features FiraCode-Regular +cv06 +cv27 +cv31
 
 
 # BEGIN_KITTY_THEME
-# 3024 Day
+# Alabaster
 include current-theme.conf
 # END_KITTY_THEME
