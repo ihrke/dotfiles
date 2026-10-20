@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Claude sandbox Slack icon: robot head with a toy shovel, transparent background -->
+  <g stroke="#1E1B3A" stroke-width="28" stroke-linejoin="round" stroke-linecap="round">
+    <!-- antenna -->
+    <line x1="440" y1="262" x2="440" y2="150"/>
+    <circle cx="440" cy="120" r="46" fill="#FF5A5F"/>
+    <!-- ears -->
+    <rect x="58" y="430" width="70" height="170" rx="30" fill="#8FA0B8"/>
+    <rect x="752" y="430" width="70" height="170" rx="30" fill="#8FA0B8"/>
+    <!-- head and visor -->
+    <rect x="110" y="262" width="660" height="520" rx="160" fill="#EEF2F8"/>
+    <rect x="186" y="350" width="508" height="330" rx="110" fill="#2B2F4A" stroke="none"/>
+  </g>
+  <!-- face -->
+  <circle cx="335" cy="495" r="62" fill="#3FD6F5"/>
+  <circle cx="545" cy="495" r="62" fill="#3FD6F5"/>
+  <circle cx="315" cy="472" r="17" fill="#FFFFFF"/>
+  <circle cx="525" cy="472" r="17" fill="#FFFFFF"/>
+  <path d="M385 600 Q 440 638 495 600" fill="none" stroke="#3FD6F5" stroke-width="22" stroke-linecap="round"/>
+
+  <!-- toy shovel in front, tilted -->
+  <g transform="translate(700 650) rotate(18.6)" stroke="#1E1B3A" stroke-linejoin="round" stroke-linecap="round">
+    <line x1="0" y1="-560" x2="0" y2="0" stroke-width="76"/>
+    <line x1="0" y1="-560" x2="0" y2="0" stroke="#D9924F" stroke-width="28"/>
+    <line x1="-78" y1="-575" x2="78" y2="-575" stroke-width="76"/>
+    <line x1="-78" y1="-575" x2="78" y2="-575" stroke="#D9924F" stroke-width="28"/>
+    <path d="M-100 -20 L100 -20 L100 130 Q 100 250 0 280 Q -100 250 -100 130 Z" fill="#FFB938" stroke-width="28"/>
+    <line x1="0" y1="20" x2="0" y2="200" stroke="#E0951C" stroke-width="18"/>
+  </g>
+</svg>

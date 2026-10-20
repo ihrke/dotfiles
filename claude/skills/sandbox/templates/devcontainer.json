@@ -17,7 +17,9 @@
     // (survives rebuilds), each with its own login (/login once inside). Nothing
     // from the host config (login, sessions, settings, plugins) is visible here.
     "source=claude-${devcontainerId},target=/home/vscode/.claude,type=volume",
-    "source=claude-sci-${devcontainerId},target=/home/vscode/.claude-sci,type=volume"
+    "source=claude-sci-${devcontainerId},target=/home/vscode/.claude-sci,type=volume",
+    // Socket of the host Slack relay (NOTIFY; drop this line if SANDBOX_NOTIFY is "0").
+    "source=${localEnv:HOME}/.cache/claude-sandbox/notify,target=/run/sandbox-notify,type=bind,readonly"
     // EXTRA FOLDERS (added by the skill), same path inside as outside, e.g.:
     // "source=/home/mmi041/data/xyz,target=/home/mmi041/data/xyz,type=bind,readonly"
   ],
@@ -28,7 +30,12 @@
     "SANDBOX_GITHUB": "0",
     // How claude-sandbox / claude-sci-sandbox start Claude:
     // "auto" (safety check on each action) or "bypassPermissions" (skip all checks).
-    "SANDBOX_PERMISSION_MODE": "auto"
+    "SANDBOX_PERMISSION_MODE": "auto",
+    // "1" = Claude can DM you on Slack (escalations, progress, done) via the host relay.
+    "SANDBOX_NOTIFY": "1",
+    // Unattended minutes between progress reminders / before a final message is due.
+    "SANDBOX_SUMMARY_MINUTES": "1440",
+    "SANDBOX_DONE_MINUTES": "20"
   },
 
   "customizations": {

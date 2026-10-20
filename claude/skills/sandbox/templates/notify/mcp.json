@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "sandbox-notify": {
+      "command": "node",
+      "args": ["/opt/sandbox-notify/mcp-server.js"]
+    }
+  }
+}

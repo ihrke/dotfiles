@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": ["mcp__sandbox-notify__notify_owner"]
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      { "hooks": [{ "type": "command", "command": "node /opt/sandbox-notify/hook.js prompt" }] }
+    ],
+    "PostToolUse": [
+      { "matcher": "*", "hooks": [{ "type": "command", "command": "node /opt/sandbox-notify/hook.js tool" }] }
+    ],
+    "Stop": [
+      { "hooks": [{ "type": "command", "command": "node /opt/sandbox-notify/hook.js stop" }] }
+    ],
+    "Notification": [
+      { "hooks": [{ "type": "command", "command": "node /opt/sandbox-notify/hook.js notify" }] }
+    ]
+  }
+}

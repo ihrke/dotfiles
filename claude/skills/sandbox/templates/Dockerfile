@@ -44,6 +44,11 @@ RUN curl -fsSL -o /tmp/miniforge.sh \
     && echo 'source /opt/conda/etc/profile.d/conda.sh' >> /home/vscode/.bashrc
 # <<< Python
 
+# >>> Notify (Slack DMs to the owner via the host relay; drop if SANDBOX_NOTIFY is "0")
+# MCP server + hooks, read-only for Claude. The Slack token stays on the host.
+COPY notify/ /opt/sandbox-notify/
+# <<< Notify
+
 # Login/session dirs for the two Claude accounts. Named volumes are mounted
 # here (see devcontainer.json); creating them owned by vscode makes the fresh
 # volumes inherit that ownership.
