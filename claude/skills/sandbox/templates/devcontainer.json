@@ -1,0 +1,45 @@
+{
+  // Claude sandbox. Created by the `sandbox` skill; start with
+  // `claude-sandbox` (personal) or `claude-sci-sandbox` (Teams for Scientists),
+  // or "Reopen in Container" in VS Code.
+  "name": "claude-sandbox",
+  "build": { "dockerfile": "Dockerfile" },
+
+  "remoteUser": "vscode",
+  "containerUser": "vscode",
+
+  // The project is mounted at the same path as on the host.
+  "workspaceMount": "source=${localWorkspaceFolder},target=${localWorkspaceFolder},type=bind",
+  "workspaceFolder": "${localWorkspaceFolder}",
+
+  "mounts": [
+    // Claude config for both accounts, one fresh pair of volumes per sandbox
+    // (survives rebuilds), each with its own login (/login once inside). Nothing
+    // from the host config (login, sessions, settings, plugins) is visible here.
+    "source=claude-${devcontainerId},target=/home/vscode/.claude,type=volume",
+    "source=claude-sci-${devcontainerId},target=/home/vscode/.claude-sci,type=volume"
+    // EXTRA FOLDERS (added by the skill), same path inside as outside, e.g.:
+    // "source=/home/mmi041/data/xyz,target=/home/mmi041/data/xyz,type=bind,readonly"
+  ],
+
+  "containerEnv": {
+    "CLAUDE_CONFIG_DIR": "/home/vscode/.claude",
+    // "1" = launcher passes your host GitHub token (gh auth token) at start-up.
+    "SANDBOX_GITHUB": "0",
+    // How claude-sandbox / claude-sci-sandbox start Claude:
+    // "auto" (safety check on each action) or "bypassPermissions" (skip all checks).
+    "SANDBOX_PERMISSION_MODE": "auto"
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": ["anthropic.claude-code"],
+      "settings": { "security.workspace.trust.enabled": false }
+    }
+  },
+
+  "postCreateCommand": "bash .devcontainer/restore-env.sh"
+
+  // No firewall: outbound network is open. Only the mounts above are visible,
+  // so host secrets (~/.ssh, ~/.aws, dotfiles) are not.
+}
